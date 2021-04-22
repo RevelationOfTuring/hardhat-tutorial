@@ -6,6 +6,11 @@ async function main() {
         deployer.address
     );
 
+    console.log("Account balance:", (await deployer.getBalance()).toString())
+    const Token = await ethers.getContractFactory("Token");
+    const token = await Token.deploy(1024000000);
+
+    console.log("Token address:", token.address);
 }
 
 main()
